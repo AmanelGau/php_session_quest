@@ -1,3 +1,10 @@
+<?php
+require_once 'inc/functions.php';
+startSession();
+if (isset($_SESSION["name"])) {
+    header("Location: /index.php");
+}
+?>
 <?php require 'inc/head.php'; ?>
 <div class="container" style="margin-top:40px">
     <div class="row">
@@ -7,7 +14,7 @@
                     <strong> Sign in to continue</strong>
                 </div>
                 <div class="panel-body">
-                    <form role="form" action="#" method="POST">
+                    <form role="form" action="inc/loginController.php?function=login" method="POST">
                         <fieldset>
                             <div class="row">
                                 <div class="center-block">

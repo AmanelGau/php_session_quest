@@ -1,3 +1,13 @@
+<?php
+require_once 'functions.php';
+startSession(); 
+$name = "Wilder";
+if(isset($_SESSION["name"])) {
+    $name = $_SESSION["name"];
+}
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -43,11 +53,18 @@
                             Cart
                         </a>
                     </li>
+                    <li>
+                    <?php if (isset($_SESSION["name"])): ?>
+                        <a href="/inc/loginController.php?function=disconnect">Disconnect</a>
+                    <?php else: ?>
+                        <a href="/login.php">Login</a>
+                    <?php endif ?>
+                    </li>
                 </ul>
             </div><!-- /.navbar-collapse -->
         </div><!-- /.container-fluid -->
     </nav>
     <div class="container-fluid text-right">
-        <strong>Hello Wilder !</strong>
+        <strong>Hello <?= $name ?> !</strong>
     </div>
 </header>
